@@ -50,7 +50,7 @@ def common_function(id_number):
         result += ', '.join(list(map(lambda x: x.text, challenge.activities))) + '\n' * 2
         result += 'https://www.strava.com/challenges/' + str(id_number)
     else:
-        name = find_needed_line_2(delimiter(all_inform))[0]
+        name = find_needed_line_2(delimiter(all_inform))[0].replace("&#39;", "'")
         date = find_needed_line_2(delimiter(all_inform))[1].replace('</strong>', '').replace('<strong>', '')
         description = find_needed_line_2(delimiter(all_inform))[2]
         result = name + '\n' * 2
