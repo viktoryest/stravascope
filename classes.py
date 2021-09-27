@@ -17,7 +17,7 @@ class Challenge:
         return final_activities
 
     def __init__(self, json_file):
-        self.title = json_file['header']['name']
+        self.title = json_file['header']['name'].replace("&#39;", "'")
         self.date = json_file['summary']['calendar']['title'].replace('</strong>', '').replace('<strong>', '')
         self.activities = self.get_activities(json_file)
 
